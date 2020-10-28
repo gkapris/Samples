@@ -1,0 +1,133 @@
+<mat-spinner *ngIf="isLoading" style="margin: auto;"></mat-spinner>
+<div
+  *ngIf="!isLoading"
+  fxLayout="column"
+  fxLayoutAlign="space-between center"
+  fxLayoutGap="5%"
+  fxFill
+>
+  <div fxFlex="20%" fxLayoutAlign="center center" fxFill>
+    <h1 *ngIf="mode === 'create'">{{ dictionary.user.form.profile }}</h1>
+    <h1 *ngIf="mode === 'edit'">{{ dictionary.user.form.edit }}</h1>
+  </div>
+  <mat-card fxFlex="70%" fxLayoutAlign="center center" style="width: 50%;">
+    <mat-card-content fxFill>
+      <!-- Sign Up new user Form -->
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <!-- Username field -->
+        <mat-form-field fxFill>
+          <mat-label>{{ dictionary.user.form.username }}</mat-label>
+          <input type="text" matInput formControlName="username" />
+          <mat-error
+            *ngIf="
+              !userForm.get('username').valid &&
+              userForm.get('username').touched
+            "
+          >
+            <mat-error *ngIf="userForm.get('username').errors['required']">
+              {{ dictionary.user.form.error.usernameRequired }}
+            </mat-error>
+            <mat-error *ngIf="userForm.get('username').errors['nameIsBound']">
+              {{ dictionary.user.form.error.nameBound }}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Password field -->
+        <mat-form-field fxFill>
+          <mat-label>{{ dictionary.user.form.password }}</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error
+            *ngIf="
+              !userForm.get('password').valid &&
+              userForm.get('password').touched
+            "
+          >
+            <mat-error *ngIf="userForm.get('password').errors['required']">
+              {{ dictionary.user.form.error.usernameRequired }}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- First name field -->
+        <mat-form-field fxFill>
+          <mat-label>{{ dictionary.user.form.firstName }}</mat-label>
+          <input type="text" matInput formControlName="firstName" />
+          <mat-error
+            *ngIf="
+              !userForm.get('firstName').valid &&
+              userForm.get('firstName').touched
+            "
+          >
+            <mat-error *ngIf="userForm.get('firstName').errors['required']">
+              {{ dictionary.user.form.error.firstNameRequired }}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Last name field -->
+        <mat-form-field fxFill>
+          <mat-label>{{ dictionary.user.form.lastName }}</mat-label>
+          <input type="text" matInput formControlName="lastName" />
+          <mat-error
+            *ngIf="
+              !userForm.get('lastName').valid &&
+              userForm.get('lastName').touched
+            "
+          >
+            <mat-error *ngIf="userForm.get('lastName').errors['required']">
+              {{ dictionary.user.form.error.usernameRequired }}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Email field -->
+        <mat-form-field fxFill>
+          <mat-label>{{ dictionary.user.form.email }}</mat-label>
+          <input type="mail" matInput formControlName="email" />
+          <mat-error
+            *ngIf="
+              !userForm.get('email').valid && userForm.get('email').touched
+            "
+          >
+            <mat-error *ngIf="userForm.get('email').errors['required']">
+              {{ dictionary.user.form.error.usernameRequired }}
+            </mat-error>
+            <mat-error *ngIf="userForm.get('email').errors['email']">
+              {{ dictionary.user.form.error.invalidMail }}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Form submit btn -->
+        <div
+          fxLayout="row"
+          fxLayoutAlign="space-around center"
+          fxLayoutGap="5%"
+        >
+          <button
+            type="submit"
+            mat-raised-button
+            [disabled]="!userForm.valid"
+            color="primary"
+          >
+            {{ dictionary.user.form.submitBtn }}
+          </button>
+          <button
+            type="button"
+            mat-raised-button
+            color="accent"
+            routerLink="/UserList"
+          >
+            {{ dictionary.user.form.cancel }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
