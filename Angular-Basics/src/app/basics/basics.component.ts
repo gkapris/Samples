@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-basics',
   templateUrl: './basics.component.html',
   styleUrls: ['./basics.component.scss'],
 })
-export class BasicsComponent implements OnInit {
+export class BasicsComponent {
   title = 'Basics with Angular';
   myText = 'Just testing';
 
@@ -19,8 +19,6 @@ export class BasicsComponent implements OnInit {
   @Output() liked = new EventEmitter();
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   onClick() {
     console.log('Hello Event');

@@ -11,7 +11,14 @@ export class AppComponent {
 
   @Output() liked = new EventEmitter<boolean>();
 
+  // Refers to basics component
+  // onLike(e) {
+  //   window.alert(`I like ${this.hero}`);
+  // }
+
+  // Refers to lifecycleComponent
   onLike(e) {
     window.alert(`I like ${this.hero}`);
+    this.hero = 'Batman';
   }
 }

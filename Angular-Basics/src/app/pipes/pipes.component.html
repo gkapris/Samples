@@ -1,0 +1,27 @@
+<!-- Transform string in particular case -->
+<p>{{ "hello angular 10" | uppercase }}</p>
+<p>{{ "HELLO ANGULAR 10" | lowercase }}</p>
+
+<!-- Formats a number -->
+<p>{{ 0.1223 | percent }}</p>
+<p>{{ 100 | currency }}</p>
+<p>{{ 100 | currency: "EUR" }}</p>
+
+<!-- subtracts a subset (slice) of a collection or string -->
+<p>{{ heroes | slice: 1:3 }}</p>
+
+<!-- Date format -->
+<p>{{ today | date: "fullDate" }}</p>
+
+<!-- JSON format -->
+<p>{{ hero | json }}</p>
+
+<!-- Using custom pipes -->
+<ul>
+  <li *ngFor="let hero of heroes | sort: 'name'; index as myIndex">
+    {{ myIndex + 1 }}. {{ hero.name }}
+  </li>
+</ul>
+
+<!-- Change detection with pipes -->
+<button (click)="Change()">Change</button>

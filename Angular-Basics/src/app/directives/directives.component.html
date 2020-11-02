@@ -1,0 +1,52 @@
+<!-- Displaying data conditionally -->
+<p *ngIf="name === 'Superman'">{{ name }} hero works!</p>
+<p *ngIf="name !== 'Superman'">Hero was not found</p>
+
+<!-- Use ng-template to compose an if-else statement in the template
+of our component: -->
+<p *ngIf="name === 'Superman'; else noHero">{{ name }} hero works!</p>
+<ng-template #noHero>
+  <p>Hero was not found</p>
+</ng-template>
+
+<!-- The difference is that ngIf adds or removes elements from the DOM tree where hidden
+hides or displays elements that exist already in the DOM tree -->
+<p [hidden]="name !== 'Superman'">{{ name }} hero works</p>
+
+<!-- Output Decorator - passing data from the child component to the parent component -->
+<button (click)="liked.emit(true)">Like</button>
+
+<!-- loop over a collection of items and render a template for each one -->
+<ul>
+  <li *ngFor="let hero of heroes; index as myIndex; trackBy: trackByHeroes">
+    {{ myIndex + 1 }}. {{ hero.name }}
+  </li>
+</ul>
+
+<!-- switch between templates and display each one depending on a defined value -->
+<ul>
+  <li *ngFor="let hero of heroes; index as myIndex; trackBy: trackByHeroes">
+    <div [ngSwitch]="hero.team">
+      <div *ngSwitchCase="'Avengers'">{{ hero.name }} is {{ hero.team }}</div>
+      <div *ngSwitchCase="'Justice'">{{ hero.name }} is {{ hero.team }}</div>
+    </div>
+  </li>
+</ul>
+
+<!-- Custom directives -->
+<p appCopyright></p>
+
+<!-- Custom directive for input validation -->
+<input type="text" appNumeric />
+
+<!-- Permission Directive -->
+<div *appPermission="['admin', 'agent']">
+  <ul>
+    <li *ngFor="let hero of heroes; index as myIndex; trackBy: trackByHeroes">
+      <div [ngSwitch]="hero.team">
+        <div *ngSwitchCase="'Avengers'">{{ hero.name }} is {{ hero.team }}</div>
+        <div *ngSwitchCase="'Justice'">{{ hero.name }} is {{ hero.team }}</div>
+      </div>
+    </li>
+  </ul>
+</div>

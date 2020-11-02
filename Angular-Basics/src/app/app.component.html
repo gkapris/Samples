@@ -1,5 +1,23 @@
 <!-- <app-basics [name]="hero"></app-basics> -->
 <!-- <app-basics name="Batman"></app-basics> -->
-<app-basics #heroCmp [name]="hero" (liked)="onLike($event)"></app-basics>
+
 <!-- Local references in template using # -->
-<span> {{ heroCmp.name }} </span>
+<!-- <app-basics #heroCmp [name]="hero" (liked)="onLike($event)"></app-basics> -->
+<!-- <span> {{ heroCmp.name }} </span> -->
+
+<!-- CSS Styling -->
+<!-- <app-css-styling></app-css-styling> -->
+
+<!-- Lifecycle -->
+<!-- <app-lifecycle #heroCmp [name]="hero" (liked)="onLike($event)"></app-lifecycle>
+<span> {{ heroCmp.name }} </span> -->
+
+<!-- Directive -->
+<app-directives
+  #heroCmp
+  [name]="hero"
+  (liked)="onLike($event)"
+></app-directives>
+
+<!-- Pipes -->
+<!-- <app-pipes></app-pipes> -->
