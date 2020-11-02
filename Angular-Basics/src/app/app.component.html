@@ -1,0 +1,5 @@
+<!-- <app-basics [name]="hero"></app-basics> -->
+<!-- <app-basics name="Batman"></app-basics> -->
+<app-basics #heroCmp [name]="hero" (liked)="onLike($event)"></app-basics>
+<!-- Local references in template using # -->
+<span> {{ heroCmp.name }} </span>

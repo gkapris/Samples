@@ -1,0 +1,29 @@
+<!-- String Interpolation -->
+<h1>
+  {{ title }}
+</h1>
+
+<!-- Property Binding -->
+<h1 [innerText]="title"></h1>
+
+<h2 [attr.aria-label]="myText"></h2>
+
+<h2 [innerText]="'My Title'"></h2>
+
+<p class="start">Hello World</p>
+
+<p style="color: greenyellow">Hello World</p>
+
+<p [style]="currentClasses">Hello World</p>
+
+<p [style.color]="'blue'">Hello World</p>
+
+<!-- Event Binding -->
+<button (click)="onClick()">Click me</button>
+
+<!-- Input Decorator - passing data from parent component to child component -->
+
+<p>{{ name }} hero works!</p>
+
+<!-- Output Decorator - passing data from the child component to the parent component -->
+<button (click)="liked.emit(true)">Like</button>
