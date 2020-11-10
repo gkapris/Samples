@@ -1,7 +1,7 @@
 import { HttpHandlingModule } from './http-handling/http-handling.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { BasicsComponent } from './basics/basics.component';
 import { CssStylingComponent } from './css-styling/css-styling.component';
@@ -17,6 +17,7 @@ import { DependencyInjModule } from './dependency-inj/dependency-inj.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './shared/DataService/data-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RoutingModule } from './routing/routing.module';
 
 @NgModule({
   declarations: [
@@ -33,11 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     TestingModulesModule,
     DependencyInjModule,
     HttpHandlingModule,
     HttpClientModule,
+    RoutingModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
   ],
   providers: [],
