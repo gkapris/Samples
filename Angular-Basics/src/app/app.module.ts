@@ -1,6 +1,6 @@
+import { HttpHandlingModule } from './http-handling/http-handling.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicsComponent } from './basics/basics.component';
@@ -12,6 +12,11 @@ import { SortPipe } from './pipes/sort.pipe';
 import { CopyrightDirective } from './directives/copyright.directive';
 import { NumericDirective } from './directives/numeric.directive';
 import { PermissionDirective } from './directives/permission.directive';
+import { TestingModulesModule } from './testing-modules/testing-modules.module';
+import { DependencyInjModule } from './dependency-inj/dependency-inj.module';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './shared/DataService/data-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,13 +29,18 @@ import { PermissionDirective } from './directives/permission.directive';
     SortPipe,
     CopyrightDirective,
     NumericDirective,
-    PermissionDirective
+    PermissionDirective,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TestingModulesModule,
+    DependencyInjModule,
+    HttpHandlingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

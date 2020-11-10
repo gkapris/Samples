@@ -1,0 +1,9 @@
+<h1>Dependency Injection Example</h1>
+
+<ul>
+  <li *ngFor="let hero of heroes">
+    <app-example-details #heroDetails [heroId]="hero.id"> </app-example-details>
+  </li>
+</ul>
+
+<app-example-fav></app-example-fav>
