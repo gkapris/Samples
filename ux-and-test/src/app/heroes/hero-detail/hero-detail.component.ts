@@ -18,8 +18,10 @@ export class HeroDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.hero = this.route.snapshot.data.hero;
-    console.log(this.hero);
+    // this.hero = this.route.snapshot.data.hero;
+    this.route.data.subscribe((data: { hero: Hero }) => {
+      this.hero = data.hero;
+    });
     // this.getHeroObs();
     // this.getHeroSnap();
   }
