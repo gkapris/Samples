@@ -15,7 +15,10 @@ var HeroDetailComponent = /** @class */ (function () {
         this.heroService = heroService;
     }
     HeroDetailComponent.prototype.ngOnInit = function () {
-        this.getHeroObs();
+        this.hero = this.route.snapshot.data.hero;
+        console.log(this.hero);
+        // this.getHeroObs();
+        // this.getHeroSnap();
     };
     HeroDetailComponent.prototype.getHeroObs = function () {
         var _this = this;
@@ -25,6 +28,11 @@ var HeroDetailComponent = /** @class */ (function () {
             return _this.heroService.getHero(id);
         }), operators_1.map(function (hero) { return (_this.hero = hero); }))
             .subscribe();
+    };
+    HeroDetailComponent.prototype.getHeroSnap = function () {
+        var _this = this;
+        var id = this.route.snapshot.params.id;
+        this.heroService.getHero(id).subscribe(function (hero) { return (_this.hero = hero); });
     };
     HeroDetailComponent = __decorate([
         core_1.Component({

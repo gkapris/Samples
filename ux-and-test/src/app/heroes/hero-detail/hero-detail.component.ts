@@ -18,7 +18,10 @@ export class HeroDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getHeroObs();
+    this.hero = this.route.snapshot.data.hero;
+    console.log(this.hero);
+    // this.getHeroObs();
+    // this.getHeroSnap();
   }
 
   private getHeroObs(): void {
@@ -31,5 +34,10 @@ export class HeroDetailComponent implements OnInit {
         map((hero) => (this.hero = hero))
       )
       .subscribe();
+  }
+
+  private getHeroSnap(): void {
+    const id = this.route.snapshot.params.id;
+    this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
   }
 }

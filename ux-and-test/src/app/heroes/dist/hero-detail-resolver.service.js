@@ -6,24 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.HeroesService = void 0;
+exports.HeroDetailResolverService = void 0;
 var core_1 = require("@angular/core");
-var HeroesService = /** @class */ (function () {
-    function HeroesService(http) {
-        this.http = http;
-        this.heroesUrl = 'api/heroes/';
+var rxjs_1 = require("rxjs");
+var operators_1 = require("rxjs/operators");
+var HeroDetailResolverService = /** @class */ (function () {
+    function HeroDetailResolverService(heroService) {
+        this.heroService = heroService;
     }
-    HeroesService.prototype.getHeroes = function () {
-        return this.http.get(this.heroesUrl);
+    HeroDetailResolverService.prototype.resolve = function (route, state) {
+        var id = +route.paramMap.get('id');
+        return this.heroService.getHero(id).pipe(operators_1.take(1), operators_1.mergeMap(function (hero) { return rxjs_1.of(hero); }));
     };
-    HeroesService.prototype.getHero = function (id) {
-        return this.http.get(this.heroesUrl + id);
-    };
-    HeroesService = __decorate([
+    HeroDetailResolverService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], HeroesService);
-    return HeroesService;
+    ], HeroDetailResolverService);
+    return HeroDetailResolverService;
 }());
-exports.HeroesService = HeroesService;
+exports.HeroDetailResolverService = HeroDetailResolverService;
