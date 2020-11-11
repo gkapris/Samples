@@ -4,10 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesModule } from './heroes/heroes.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './data/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
-  imports: [BrowserModule, HeroesModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HeroesModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
