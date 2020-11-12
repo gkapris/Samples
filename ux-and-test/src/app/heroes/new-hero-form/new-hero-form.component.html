@@ -1,0 +1,51 @@
+<form formGroupName="heroDetails">
+  <div class="form-group">
+    <h1>Hero Details</h1>
+    <div>
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        aria-describedby="helpId"
+        placeholder="Name"
+      />
+      <span
+        class="help-block"
+        *ngIf="heroDetails.controls.name.hasError('reservedName')"
+        >Hero name is already taken</span
+      >
+    </div>
+    <div>
+      <input
+        formControlName="realName"
+        type="text"
+        class="form-control"
+        placeholder="Real Name"
+      />
+    </div>
+  </div>
+  <div>
+    <form formGroupName="biometricData">
+      <h3>Biometric Data</h3>
+      <div>
+        <label>Age:</label>
+        <input type="number" class="form-control" formControlName="age" />
+      </div>
+      <div>
+        <label>Eyes:</label>
+        <input type="color" class="form-control" formControlName="eyes" />
+      </div>
+      <div>
+        <label>Hair:</label>
+        <input type="color" class="form-control" formControlName="hair" />
+      </div>
+    </form>
+  </div>
+  <div *ngFor="let power of powers.controls; let i = index">
+    <label
+      >Power:
+      <input type="text" formControlName="i" ] />
+    </label>
+    <button (click)="addPower()">Add Power</button>
+  </div>
+</form>

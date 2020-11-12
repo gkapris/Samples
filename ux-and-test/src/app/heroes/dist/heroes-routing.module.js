@@ -13,6 +13,7 @@ var hero_detail_component_1 = require("./hero-detail/hero-detail.component");
 var hero_list_component_1 = require("./hero-list/hero-list.component");
 var auth_guard_1 = require("../auth/auth.guard");
 var hero_detail_resolver_service_1 = require("./hero-detail-resolver.service");
+var new_hero_form_component_1 = require("./new-hero-form/new-hero-form.component");
 var routes = [
     {
         path: 'heroes',
@@ -25,7 +26,8 @@ var routes = [
         canDeactivate: [auth_guard_1.AuthGuard],
         resolve: { hero: hero_detail_resolver_service_1.HeroDetailResolverService }
     },
-    { path: '', redirectTo: '/heroes', pathMatch: 'full' },
+    { path: 'newHero', component: new_hero_form_component_1.NewHeroFormComponent },
+    { path: '', redirectTo: 'heroes', pathMatch: 'full' },
 ];
 var HeroesRoutingModule = /** @class */ (function () {
     function HeroesRoutingModule() {

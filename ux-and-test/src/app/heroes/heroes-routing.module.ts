@@ -4,6 +4,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { HeroDetailResolverService } from './hero-detail-resolver.service';
+import { NewHeroFormComponent } from './new-hero-form/new-hero-form.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
     canDeactivate: [AuthGuard],
     resolve: { hero: HeroDetailResolverService },
   },
-  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
+  { path: 'newHero', component: NewHeroFormComponent },
+  { path: '', redirectTo: 'heroes', pathMatch: 'full' },
 ];
 
 @NgModule({
