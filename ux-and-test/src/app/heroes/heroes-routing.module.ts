@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { AuthGuard } from '../auth/auth.guard';
-import { ConfirmGuard } from '../auth/confirm.guard';
 import { HeroDetailResolverService } from './hero-detail-resolver.service';
 
 const routes: Routes = [
@@ -16,7 +15,7 @@ const routes: Routes = [
     path: 'heroes/:id',
     component: HeroDetailComponent,
     canActivate: [AuthGuard],
-    canDeactivate: [ConfirmGuard],
+    canDeactivate: [AuthGuard],
     resolve: { hero: HeroDetailResolverService },
   },
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
