@@ -1,0 +1,19 @@
+<mat-form-field>
+  <!-- Basic text input field  
+    <input matInput type="text" placeholder="Name" [formControl]="name" />
+    <mat-error *ngIf="!name.valid">Name is required</mat-error> -->
+
+  <!-- Autocomplete filter -->
+  <input
+    matInput
+    type="text"
+    [formControl]="name"
+    placeholder="Name"
+    [matAutocomplete]="listAuto"
+  />
+  <mat-autocomplete #listAuto="matAutocomplete">
+    <mat-option *ngFor="let item of filteredList$ | async" [value]="item.name">
+      {{ item.name }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
