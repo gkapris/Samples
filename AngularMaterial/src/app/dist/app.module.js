@@ -14,6 +14,8 @@ var app_component_1 = require("./app.component");
 var animations_1 = require("@angular/platform-browser/animations");
 var basic_buttons_module_1 = require("./basic-buttons/basic-buttons.module");
 var form_controls_module_1 = require("./form-controls/form-controls.module");
+var nav_module_1 = require("./nav/nav.module");
+var tables_module_1 = require("./tables/tables.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -26,6 +28,8 @@ var AppModule = /** @class */ (function () {
                 animations_1.BrowserAnimationsModule,
                 basic_buttons_module_1.BasicButtonsModule,
                 form_controls_module_1.FormControlsModule,
+                nav_module_1.NavModule,
+                tables_module_1.TablesModule,
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
