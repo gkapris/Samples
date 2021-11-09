@@ -3,8 +3,8 @@ interface Hero1 {
   power: number;
 }
 
-const hero: Partial<Hero1> = {
-  name: "Hulk",
+const heropart: Partial<Hero1> = {
+  name: 'Hulk',
 };
 
-console.log(hero);
+console.log(heropart);

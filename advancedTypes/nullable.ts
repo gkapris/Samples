@@ -3,7 +3,7 @@ interface Hero4 {
 }
 
 const hero: Hero4 = {
-  powers: [10, 20],
+  powers: [300, 200],
 };
 
 if (hero.powers !== null && hero.powers !== undefined) {

@@ -3,7 +3,7 @@ interface Hero2 {
   resistance: Record<string, number>;
 }
 
-const hero: Hero2 = {
+const herorec: Hero2 = {
   powers: {
     speed: 10,
     strength: 5,
@@ -14,4 +14,4 @@ const hero: Hero2 = {
   },
 };
 
-console.log(hero);
+console.log(herorec);
